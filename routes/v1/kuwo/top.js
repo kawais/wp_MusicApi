@@ -5,12 +5,12 @@ const APIError = require("../../../middlewares/rest").APIError;
 let top = async (ctx) => {
     if (ctx.request.method === 'GET') {
         var topId = ctx.request.query.topId || '16';
-        var limit = ctx.request.query.limit || '100';
+        var limit = ctx.request.query.limit || '20';
         var offset = ctx.request.query.offset || '1';
         var from = ctx.request.query.from || 'web';
     } else if (ctx.request.method === 'POST') {
         var topId = ctx.request.body.topId || '16';
-        var limit = ctx.request.body.limit || '100';
+        var limit = ctx.request.body.limit || '20';
         var offset = ctx.request.body.offset || '1';
         var from = ctx.request.body.from || 'web';
     }
