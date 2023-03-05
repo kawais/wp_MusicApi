@@ -90,7 +90,9 @@ let topCategory = async (ctx) => {
     }
 
     let result = await migu_request(`https://app.c.nf.migu.cn/MIGUM3.0/v1.0/template/rank-list/release`);
-    const list = filterBoardsData(result.data.data.contentItemList);
+
+    let data = JSON.parse(result.data.replace('}},],', '}}],'))
+    const list = filterBoardsData(data.data.contentItemList)
 
     global.cache.set(ctx.request.url, {
         list,
